@@ -18,4 +18,19 @@ describe(MyHash) do
       expect(test_hash.fetch("cat")).to(eq("nasty"))
     end
   end
+  describe("#has_key?") do
+    it("returns false a key that is not stored") do
+      test_hash = MyHash.new()
+      test_hash.store("kitten", "cat")
+      expect(test_hash.has_key?("dog")).to(eq(false))
+    end
+  end
+
+    describe("#has_value?") do
+      it("returns false a value that is not stored") do
+        test_hash = MyHash.new()
+        test_hash.store("kitten", "cat")
+        expect(test_hash.has_value?("friendly")).to(eq(false))
+      end
+    end
 end
