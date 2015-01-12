@@ -7,11 +7,16 @@ class MyHash
   define_method(:store) do |key, value|
     @keys.push(key)
     @values.push(value)
+
   end
 
   define_method(:fetch) do |key|
-    if key == @keys[0]
-      @values[0]
+    @keys.each_with_index() do |noun, num|
+      if noun == key
+        return @values[num]
+binding.pry
+      end
     end
   end
+
   end
